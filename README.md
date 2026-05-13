@@ -63,7 +63,7 @@ All machines run on an isolated VirtualBox NAT Network — no traffic reaches th
 ## 🖼️ Screenshots
 
 ### Splunk Dashboard — Live Attack Monitor
-![Splunk Dashboard](screenshots/splunk_dashboard.png)
+![Splunk Dashboard](screenshots/13c76eeb-3b96-408f-a3f4-7c80d57f447f.jpg)
 
 ---
 
