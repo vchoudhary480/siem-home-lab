@@ -69,7 +69,7 @@ All machines run on an isolated VirtualBox NAT Network — no traffic reaches th
 
 A full professional incident report documenting all findings, evidence, and remediation recommendations is included in this repository.
 
-📎 [View Incident Report (PDF)](Incident_Report_Vishwa.pdf)
+📎 [View Incident Report (PDF)](Vishwa_Choudhary_Incident_Report.pdf)
 
 ## 🛠️ Tools Used
 
