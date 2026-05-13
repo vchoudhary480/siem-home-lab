@@ -6,9 +6,11 @@ A home lab simulating real-world cyberattacks detected and logged by a Splunk En
 
 ## 🧰 Lab Architecture
 
-[Kali Linux] ──attacks──► [Metasploitable 3] ──rsyslog──► [Splunk SIEM]
-10.0.2.4                    10.0.2.15                   Windows Host
-(Attacker)                  (Victim)                    Port 514 UDP
+```
+[Kali Linux]        ──attacks──►    [Metasploitable 3]    ──rsyslog──►    [Splunk SIEM]
+10.0.2.4                            10.0.2.15                              Windows Host
+(Attacker)                          (Victim)                               Port 514 UDP
+```
 
 All machines run on an isolated VirtualBox NAT Network — no traffic reaches the real internet.
 
@@ -24,30 +26,29 @@ All machines run on an isolated VirtualBox NAT Network — no traffic reaches th
 | Network | VirtualBox NatNetwork + Host-Only Adapter |
 | Log Forwarding | rsyslog → UDP 514 → Splunk |
 
----
-
 ## ⚔️ Attacks Performed
 
 ### 1. Network Reconnaissance — Nmap Port Scan
+
 - **Tool:** Nmap 7.98
 - **Command:** `nmap -sS -sV 10.0.2.15`
 - **Result:** 9 open ports discovered including FTP, SSH, HTTP, MySQL, IRC
 - **SIEM Detection:** FTP and SSH connection attempts logged in Splunk
 
 ### 2. SSH Brute Force — Hydra
+
 - **Tool:** Hydra
 - **Command:** `hydra -l vagrant -P rockyou.txt ssh://10.0.2.15 -t 4`
 - **Result:** Password cracked — `vagrant/vagrant` (default credentials)
 - **SIEM Detection:** 1,830+ authentication events in one hour, peak 200+ events/min
 
 ### 3. Remote Code Execution — ProFTPD CVE
+
 - **Tool:** Metasploit Framework 6.4
 - **Module:** `exploit/unix/ftp/proftpd_modcopy_exec`
 - **Vulnerability:** ProFTPD 1.3.5 mod_copy — unauthenticated file copy
 - **Result:** Reverse shell obtained, uid=1000 with sudo group membership
 - **SIEM Detection:** FTP sessions and PHP payload copy attempts logged
-
----
 
 ## 📊 Splunk SIEM Results
 
@@ -58,22 +59,17 @@ All machines run on an isolated VirtualBox NAT Network — no traffic reaches th
 | Peak Event Rate | 200+ per minute |
 | Detection Rate | 100% |
 
----
-
 ## 🖼️ Screenshots
 
 ### Splunk Dashboard — Live Attack Monitor
-![Splunk Dashboard](screenshots/13c76eeb-3b96-408f-a3f4-7c80d57f447f.jpg)
 
----
+![Splunk Dashboard](screenshots/splunk_dashboard.jpg)
 
 ## 📄 Incident Report
 
 A full professional incident report documenting all findings, evidence, and remediation recommendations is included in this repository.
 
 📎 [View Incident Report (PDF)](Incident_Report_Vishwa.pdf)
-
----
 
 ## 🛠️ Tools Used
 
@@ -85,8 +81,6 @@ A full professional incident report documenting all findings, evidence, and reme
 - **Hydra** — Brute force tool
 - **Metasploit Framework** — Exploitation framework
 - **rsyslog** — Log forwarding
-
----
 
 ## ⚠️ Disclaimer
 
