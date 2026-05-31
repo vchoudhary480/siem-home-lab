@@ -12,7 +12,7 @@ A home lab simulating real-world cyberattacks detected and logged by a Splunk En
 (Attacker)                          (Victim)                               Port 514 UDP
 ```
 
-All machines run on an isolated VirtualBox NAT Network — no traffic reaches the real internet.
+All machines run on an isolated VirtualBox NAT Network so that no traffic reaches the real internet.
 
 ---
 
