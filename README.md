@@ -32,7 +32,7 @@ All machines run on an isolated VirtualBox NAT Network so that no traffic reache
 
 - **Tool:** Nmap 7.98
 - **Command:** `nmap -sS -sV 10.0.2.15`
-- **Result:** 9 open ports discovered including FTP, SSH, HTTP, MySQL, IRC
+- **Result:** 9 open ports discovered, including FTP, SSH, HTTP, MySQL, IRC
 - **SIEM Detection:** FTP and SSH connection attempts logged in Splunk
 
 ### 2. SSH Brute Force — Hydra
@@ -73,14 +73,14 @@ A full professional incident report documenting all findings, evidence, and reme
 
 ## 🛠️ Tools Used
 
-- **VirtualBox** — Virtual machine hypervisor
-- **Kali Linux** — Attacker machine
-- **Metasploitable 3** — Intentionally vulnerable target
-- **Splunk Enterprise** — SIEM / log analysis
-- **Nmap** — Network reconnaissance
-- **Hydra** — Brute force tool
-- **Metasploit Framework** — Exploitation framework
-- **rsyslog** — Log forwarding
+- **VirtualBox**: Virtual machine hypervisor
+- **Kali Linux**: Attacker machine
+- **Metasploitable 3**: Intentionally vulnerable target
+- **Splunk Enterprise**: SIEM / log analysis
+- **Nmap**: Network reconnaissance
+- **Hydra**: Brute force tool
+- **Metasploit Framework**: Exploitation framework
+- **rsyslog**: Log forwarding
 
 ## ⚠️ Disclaimer
 
